@@ -22,7 +22,7 @@ describe("bookshelf and knexfile config", function () {
         it('looking for the knexfile to export a seeds path', function () {
             // console.log("knex:", knex());
             expect(knex.queryBuilder().client.config.seeds).to.eql({
-                directory: './seeds/dev'
+                directory: './seeds'
             });
         });
 
@@ -40,7 +40,7 @@ describe("bookshelf and knexfile config", function () {
 
         it('looking for the seeds path from bookshelf', function () {
             expect(bookshelf.knex.queryBuilder().client.config.seeds).to.eql({
-                directory: './seeds/dev'
+                directory: './seeds'
             });
         });
 
