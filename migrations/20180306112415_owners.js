@@ -10,7 +10,7 @@ exports.up = function (knex) {
                 })
                 .then(() => knex.schema.table('pets', table => {
                     table.integer('owner_id').unsigned().index();
-                    table.foreign('owner_id').references('owners.id');
+                    table.foreign('owner_id').references('owners.id').onDelete("CASCADE");
                 }));
         }
     })
