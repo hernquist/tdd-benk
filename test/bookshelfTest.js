@@ -22,7 +22,7 @@ describe("bookshelf and knexfile config", function () {
 
         it('looking for the knexfile to export a seeds path', function () {
             // console.log("knex:", knex());
-            expect(knex.queryBuilder().client.config.seeds).to.equal({
+            expect(knex.queryBuilder().client.config.seeds).to.eql({
                 directory: './seeds/dev'
             });
         });
@@ -31,7 +31,7 @@ describe("bookshelf and knexfile config", function () {
 
     describe('making sure knexfile is being passing through bookshelf', function () {
 
-        it('looking for client to be passed through bookshelf', function (done) {
+        it('looking for client to be passed through bookshelf', function () {
             expect(bookshelf.knex.queryBuilder().client.config.client).to.equal('pg');
         });
     
@@ -40,13 +40,13 @@ describe("bookshelf and knexfile config", function () {
         });
 
         it('looking for the seeds path from bookshelf', function () {
-            expect(bookshelf.knex.queryBuilder().client.config.seeds).to.equal({
+            expect(bookshelf.knex.queryBuilder().client.config.seeds).to.eql({
                 directory: './seeds/dev'
             });
         });
 
         it('seeing the registry plugin was initialized',  function(){
-            expect(bookshelf.registry).to.equal({})
+            expect(bookshelf.registry).to.eql({})
         });
     });
 
@@ -55,17 +55,17 @@ describe("bookshelf and knexfile config", function () {
 
         it('looking for the knexfile to export a client of pg', function () {
             // console.log("knex:", knex());
-            expect(knex.queryBuilder().client.config.client).to.equal('pg');
+            expect(knexDev.queryBuilder().client.config.client).to.equal('pg');
         });
 
         it('looking for a database name ', function () {
             // console.log("knex:", knex());
-            expect(knex.queryBuilder().client.config.connection.database).to.equal('bookshelf-pets-development');
+            expect(knexDev.queryBuilder().client.config.connection.database).to.equal('bookshelf-pets-development');
         });
 
         it('looking for the knexfile to export a seeds path', function () {
             // console.log("knex:", knex());
-            expect(knex.queryBuilder().client.config.seeds).to.equal({
+            expect(knexDev.queryBuilder().client.config.seeds).to.eql({
                 directory: './seeds/dev'
             });
         });
