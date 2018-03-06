@@ -4,8 +4,29 @@
   "main": "server.js",
   "author": "David Hernquist <hernquistdavid@gmail.com>",
   "license": "MIT",
+  "scripts": {
+    "dev": "NODE_ENV=dev nodemon ./server.js",
+    "test-server": "NODE_ENV=test nodemon ./server.js",
+    "test": "mocha",
+    "test-watch": "mocha -w",
+    "setup": "node ./config/setup.js",
+    "cleanup": "node ./config/cleanup.js",
+    "migrate-all": "yarn migrate-dev && yarn migrate-test",
+    "seed-all": "yarn seed-dev && yarn seed-test",
+    "migrate-dev": "knex migrate:latest --env dev",
+    "migrate-test": "knex migrate:latest --env test",
+    "seed-dev": "knex seed:run --env dev",
+    "seed-test": "knex seed:run --env test"
+  },
   "dependencies": {
+    "bookshelf": "^0.12.1",
     "chai": "^4.1.2",
-    "mocha": "^5.0.1"
+    "knex": "^0.14.4",
+    "mocha": "^5.0.1",
+    "pg": "^7.4.1",
+    "sqlite3": "^3.1.13"
+  },
+  "devDependencies": {
+    "nodemon": "^1.17.1"
   }
 }
