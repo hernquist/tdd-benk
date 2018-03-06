@@ -16,7 +16,7 @@
     "migrate-dev": "knex migrate:latest --env dev",
     "migrate-test": "knex migrate:latest --env test",
     "seed-dev": "knex seed:run --env dev",
-    "seed-test": "knex seed:run --env test"
+    "seed-test": "NODE_ENV=test knex seed:run --env test"
   },
   "dependencies": {
     "bookshelf": "^0.12.1",
