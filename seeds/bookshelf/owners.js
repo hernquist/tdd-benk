@@ -4,13 +4,11 @@ const Pet = require('../../models/pet');
 const Owner = require('../../models/owner');
 const data = require('../data');
 
-const { pets, owners } = data;
-
-const fullName = person => `${person.first_name} ${person.last_name}`;
+const { owners, pets } = data;
 
 const deleteAll = model => model.where('id', '!=', 0).destroy();
 
-const seed = () => {
+exports.seed = async function(bookshelf, Promise) {
     await deleteAll(Owner);
     await deleteAll(Pet);
 
@@ -33,18 +31,17 @@ const seed = () => {
 
     console.log('Pets Added!');
     
-    bookshelf.knex.destroy()
+    bookshelf.destroy()
         .then(() => console.log('db connections destroyed'));
-    return null;
 };
 
 // seed();
 
-try {
-    seed();
-} catch (err) {
-    console.error('ERROR:', err);
-    process.exit(1);
-}
+// try {
+//     seed();
+// } catch (err) {
+//     console.error('ERROR:', err);
+//     process.exit(1);
+// }
 
 // module.exports = seed;
