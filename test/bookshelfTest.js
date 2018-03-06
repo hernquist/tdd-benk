@@ -2,7 +2,6 @@ process.env.NODE_ENV = 'test'
 const expect = require('chai').expect
 const bookshelf = require('../bookshelf');
 const knex = require('knex')(require('../knexfile')[process.env.NODE_ENV]);
-// const request = require('supertest')
 // const api = request('http://localhost:3001')
 
 
