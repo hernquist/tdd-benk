@@ -34,14 +34,3 @@ exports.seed = async function(bookshelf, Promise) {
     bookshelf.destroy()
         .then(() => console.log('db connections destroyed'));
 };
-
-// seed();
-
-// try {
-//     seed();
-// } catch (err) {
-//     console.error('ERROR:', err);
-//     process.exit(1);
-// }
-
-// module.exports = seed;
