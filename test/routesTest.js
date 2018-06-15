@@ -3,8 +3,8 @@ const expect = require("chai").expect;
 const request = require("supertest");
 const api = request("http://localhost:3001");
 
-describe("OWNERS", function() {
-  describe("GET ALL", function() {
+describe("Owners", function() {
+  describe("Get all", function() {
     it("tests first and last from owners", function(done) {
       api
         .get("/")
