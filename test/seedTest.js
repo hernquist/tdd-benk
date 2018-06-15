@@ -5,7 +5,7 @@ const bookshelf = require("bookshelf")(knex);
 const Pet = require("../models/pet");
 const Owner = require("../models/owner");
 
-describe ("Seeds", () => {
+describe("Seeds", function() {
   describe("check number of pets and owners", () => {
     it("fetches the pets and tests the number of entry in the seed data ", async () => {
       const pets = await Pet.fetchAll().then(data => data);

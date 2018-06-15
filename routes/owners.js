@@ -4,4 +4,3 @@ const app = express();
 const owner = require("../models/owner");
 
 module.exports = app;
-
